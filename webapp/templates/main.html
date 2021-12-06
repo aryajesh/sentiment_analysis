@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+<head>
+<title>Movie Review Analyser</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" 
+integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" 
+crossorigin="anonymous">
+</head>
+<body>
+<form action="{{ url_for('predict')}}" method="POST">
+<textarea name='message' rows='4' cols='50'></textarea>
+<br/>
+<input type="submit" class="btn-info" value='Predict'>
+{{ prediction }}
+</form>
+
+</body>
+</html>
+

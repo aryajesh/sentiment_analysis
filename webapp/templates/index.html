@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+<title>Movie Review Analyser</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" 
+integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" 
+crossorigin="anonymous">
+</head>
+<style>
+.jumbotron{ background: #0e41cc;}
+#one{color: white}
+#two{color: white}
+.btn btn-primary btn-lg{background: #0e41cc;}
+</style>
+<body>
+ <div class="container">
+<div class="jumbotron">
+  <h1 id="one">Sentiment Analyzer for Movie Reviews!</h1>
+  <p id="two" >Automatically sort the movie reviews into sentiment categories: Positive or Negative by the click of a button!</p>
+  
+</div>
+
+<form action="{{ url_for('predict')}}" method="POST">
+  <div class="form-group">
+  	<div class="panel panel-default">
+		<div class="panel-heading">
+    		<h3 class="panel-title">Paste your review in the model, below:</h3>
+  		</div>
+  		<div class="panel-body">
+   		 	<textarea rows="4" name='message' class="form-control" placeholder="Movie review here!">
+  			</textarea>
+  			</br>
+  			<button type="submit" class="btn btn-primary btn-lg">Classify Review</button>
+  		</div>
+  	
+  	<div class="panel panel-default">
+		<div class="panel-heading">
+    		<h3 class="panel-title">Preprocessed Text:</h3>
+  		</div>
+  		<div class="panel-body">
+  	     <p>{{ preprocessed }}</p>
+  	</div>
+  	</div>
+  	<div class="panel panel-default">
+		<div class="panel-heading">
+    		<h3 class="panel-title">Results!</h3>
+  		</div>
+  		<div class="panel-body">
+  			<div class="form-group">
+    <label class="col-sm-2 control-label">TAG</label>
+   		<div class="col-sm-10">
+      	<p class="form-control-static">{{ prediction }}</p>
+    	</div>
+    <label class="col-sm-2 control-label">CONFIDENCE</label>
+    <div class="col-sm-10">
+      <p class="form-control-static">{{ confidence }}</p>
+    </div>
+  </div>
+   		 	
+  	</div>
+  	
+</form>
+</div>
+
+</body>
+</html>
